@@ -28,7 +28,8 @@ BepInEx will create `com.pein.clearscope.cfg` after the game starts.
 PiP-Disabler can render its own scope vignette on top of the vanilla optic
 material. If black edges remain while using PiP-Disabler, disable its Scope
 Effects vignette in `BepInEx\config\com.fiodor.pipdisabler.cfg`:
-
+```
 [Scope Effects]
 Vignette = false
 Vignette Opacity = 0
+```
