@@ -9,22 +9,10 @@ The mod patches `EFT.CameraControl.OpticSight.Awake` and `OpticSight.OnEnable`,
 then increases the `_Scales.x` and `_Scales.y` values on optic lens materials.
 Higher values reduce scope shadow/eye relief limits.
 
-## Build
+## Installation
 
-Set `TarkovDir` to your SPT install directory:
-
-```powershell
-dotnet build .\ClearScope.sln -c Release /p:TarkovDir="C:\Path\To\SPT\"
-```
-
-Alternatively, copy `ClearScope.csproj.user.example` to `ClearScope.csproj.user`
-and set `TarkovDir` there.
-
-Copy `ClearScope.dll` from `bin\Release\` to:
-
-```text
-<SPT>\BepInEx\plugins\
-```
+Copy the `BepInEx` folder from the release archive into your SPT game directory
+and confirm folder merge when prompted.
 
 ## Configuration
 
@@ -38,11 +26,9 @@ BepInEx will create `com.pein.clearscope.cfg` after the game starts.
 ## PiP-Disabler
 
 PiP-Disabler can render its own scope vignette on top of the vanilla optic
-material. If black edges remain while using PiP-Disabler, set these values in
-`BepInEx\config\com.fiodor.pipdisabler.cfg`:
+material. If black edges remain while using PiP-Disabler, disable its Scope
+Effects vignette in `BepInEx\config\com.fiodor.pipdisabler.cfg`:
 
-```ini
 [Scope Effects]
 Vignette = false
 Vignette Opacity = 0
-```
