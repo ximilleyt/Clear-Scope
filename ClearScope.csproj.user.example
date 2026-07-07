@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup>
+    <TarkovDir>C:\Path\To\SPT\</TarkovDir>
+  </PropertyGroup>
+</Project>

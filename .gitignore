@@ -1,0 +1,11 @@
+bin/
+obj/
+release/
+*.user
+*.suo
+*.csproj.user
+*.pdb
+*.deps.json
+.vs/
+.idea/
+*.zip

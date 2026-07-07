@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>ClearScope</AssemblyName>
+    <RootNamespace>ClearScope</RootNamespace>
+    <Description>Adjusts optic scope eye relief for SPT 4.x.</Description>
+    <Version>1.0.2</Version>
+    <Authors>peinwastaken; port by ximilleyt</Authors>
+    <LangVersion>latest</LangVersion>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <CopyProjectReferencesToOutputDirectory>false</CopyProjectReferencesToOutputDirectory>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TarkovDir Condition=" '$(TarkovDir)' == '' ">C:\SPT\</TarkovDir>
+    <TarkovPluginsSPTDir>$(TarkovDir)BepInEx\plugins\spt\</TarkovPluginsSPTDir>
+    <TarkovManagedDir>$(TarkovDir)EscapeFromTarkov_Data\Managed\</TarkovManagedDir>
+    <TarkovBepInExCoreDir>$(TarkovDir)BepInEx\core\</TarkovBepInExCoreDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(TarkovBepInExCoreDir)0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(TarkovManagedDir)Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>$(TarkovBepInExCoreDir)BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Spt.Reflection">
+      <HintPath>$(TarkovPluginsSPTDir)spt-reflection.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(TarkovManagedDir)UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(TarkovManagedDir)UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="BuildCleanup" AfterTargets="Build">
+    <Delete Files="$(TargetDir)$(AssemblyName).deps.json" />
+    <Delete Files="$(TargetDir)$(AssemblyName).pdb" Condition="'$(Configuration)' == 'Release'" />
+  </Target>
+
+</Project>
